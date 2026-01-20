@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "date": "2026-01-05",
+        "day": "Friday",
+        "time": "6:00 PM - 7:00 PM",
+        "style": "Bollywood",
+        "level": "Beginner",
+        "maxSeats": 10,
+        "bookedCount": 6,
+        "price": 500
+    },
+    {
+        "id": 2,
+        "date": "2026-01-06",
+        "day": "Saturday",
+        "time": "5:00 PM - 6:30 PM",
+        "style": "Hip-Hop",
+        "level": "Intermediate",
+        "maxSeats": 12,
+        "bookedCount": 6,
+        "price": 600
+    }
+]

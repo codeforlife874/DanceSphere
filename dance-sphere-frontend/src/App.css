@@ -891,5 +891,139 @@ body {
     font-size: 20px;
   }
 }
+.payment-overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.payment-card {
+  background: linear-gradient(145deg, #1d012e, #2a0146);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 22px;
+  padding: 28px 34px;
+  width: 420px;
+  color: #fff;
+  box-shadow: 0 0 45px rgba(255,0,200,.25);
+  animation: pop .25s ease-out;
+}
+
+@keyframes pop {
+  from { transform: scale(.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.pay-title { font-size: 22px; margin-bottom: 4px; }
+.pay-sub { opacity: .8; margin-bottom: 12px; }
+
+.pay-box {
+  background: rgba(255,255,255,.1);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.pay-processing, .pay-success {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.loader {
+  width: 26px;
+  height: 26px;
+  border: 3px solid #ff7bff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  margin: 8px auto;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.choose-text { margin-top: 6px; }
+
+.pay-buttons {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.pay-btn {
+  padding: 10px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.pay-btn.upi {
+  background: linear-gradient(135deg,#ff4dff,#b400ff);
+}
+
+.pay-btn.cash {
+  background: linear-gradient(135deg,#ffaa4b,#ff5a2b);
+}
+
+.pay-btn:hover { transform: scale(1.02); }
+
+.cancel-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 9px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.15);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.feedback-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 520px;
+  margin: auto;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 16px;
+}
+
+.feedback-form textarea {
+  min-height: 110px;
+  resize: none;
+}
+
+.feedback-form input::placeholder,
+.feedback-form textarea::placeholder {
+  color: #c9b6ff;
+}
+
+.msg {
+  margin-top: 8px;
+  color: #ffc7ff;
+  font-size: 14px;
+}
 
 

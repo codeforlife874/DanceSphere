@@ -1,0 +1,5 @@
+# dance-sphere-backend/.gitignore
+node_modules/
+.env
+dance-sphere.db
+*.log

@@ -1,3 +1,4 @@
+
 const express = require("express");
 const cors = require("cors");
 const Razorpay = require('razorpay');
@@ -252,4 +253,41 @@ app.get('/api/bookings/:phone', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Backend running on http://localhost:${PORT}`);
   console.log('💳 Razorpay payment gateway ready');
+});
+const fs = require("fs");
+const path = require("path");
+
+const feedbackFile = path.join(__dirname, "feedback.json");
+
+app.post("/api/feedback", (req, res) => {
+  try {
+    const { name, feedback } = req.body;
+
+    if (!name || !feedback) {
+      return res.status(400).json({ message: "Missing fields" });
+    }
+
+    let feedbacks = [];
+
+    if (fs.existsSync(feedbackFile)) {
+      const data = fs.readFileSync(feedbackFile, "utf-8");
+      feedbacks = data ? JSON.parse(data) : [];
+    }
+
+    feedbacks.push({
+      name,
+      feedback,
+      date: new Date().toISOString()
+    });
+
+    fs.writeFileSync(
+      feedbackFile,
+      JSON.stringify(feedbacks, null, 2)
+    );
+
+    res.json({ status: "saved" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
 });
