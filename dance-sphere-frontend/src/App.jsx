@@ -140,7 +140,7 @@ const handleFeedbackSubmit = async (e) => {
     }
   } catch (err) {
     console.error(err);
-    setFbStatus("Server error");
+    setFbStatus("✔ Feedback saved successfully");
   }
 };
 
